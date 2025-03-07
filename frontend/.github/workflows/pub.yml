@@ -1,0 +1,43 @@
+name: pub
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js and Yarn
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14
+        registry-url: https://registry.yarnpkg.com
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build
+      run: npm run build
+
+    # - name: Copy Build Files
+    #   run: |
+    #     mkdir deploy
+    #     cp -r build/* deploy/
+
+    # - name: Navigate to Build Directory
+    #   run: cd deploy
+    
+    - name: Commit and Push Changes
+      run: |
+        git config --global user.email "raviraj32140@gmail.com"
+        git config --global user.name "raviraj3214"
+        git checkout -b main
+        git add -A
+        git commit -m "Upload build files"
+        git push origin main
