@@ -142,7 +142,7 @@ function Contacts() {
     onSubmit: async (values, { resetForm }) => {
       try {
         const response = await axios.post(
-          "http://localhost:2000/api/users",
+          "https://portfolio-main-1-akuh.onrender.com/api/users",
           values
         );
         ShowToast("Comment successfully", Severty.SUCCESS);

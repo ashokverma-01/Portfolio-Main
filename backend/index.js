@@ -20,8 +20,8 @@ connectDB();
 // Middleware
 app.use(express.json());
 const coreOptions = {
-  // origin: "https://portfolio-website-74ap.onrender.com",
-  origin: "http://localhost:3000",
+  origin: "https://portfolio-main-1-akuh.onrender.com",
+  // origin: "http://localhost:3000",
   credentials: true,
 };
 app.use(cors(coreOptions));
